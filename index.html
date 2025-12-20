@@ -8,73 +8,285 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">AM</a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#profile" class="nav-item active" data-section="profile">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-tooltip">Profile</span>
+                </a>
+                <a href="#skills" class="nav-item" data-section="skills">
+                    <i class="fas fa-laptop-code"></i>
+                    <span class="nav-tooltip">Skills</span>
+                </a>
+                <a href="#projects" class="nav-item" data-section="projects">
+                    <i class="fas fa-folder"></i>
+                    <span class="nav-tooltip">Projects</span>
+                </a>
+                <a href="#experience" class="nav-item" data-section="experience">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="nav-tooltip">Experience</span>
+                </a>
+                <a href="#contact" class="nav-item" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span class="nav-tooltip">Contact</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#settings" class="nav-item">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <a href="#help" class="nav-item">
+                    <i class="fas fa-question-circle"></i>
+                </a>
+            </div>
+        </aside>
 
-    <header class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="profile-image">
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user"></i>
+        <main class="main-container">
+            <section class="content-section active" id="profile">
+                <div class="profile-layout">
+                    <div class="profile-sidebar">
+                        <div class="profile-card">
+                            <div class="profile-avatar">
+                                <div class="avatar-placeholder">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <h1 class="profile-name">Abdelrahman Mahmoud</h1>
+                            <p class="profile-role">Node.js Backend Developer</p>
+
+                            <div class="profile-details">
+                                <div class="detail-group">
+                                    <h3 class="detail-title">
+                                        Client details
+                                        <i class="fas fa-edit"></i>
+                                    </h3>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Email</span>
+                                        <span class="detail-value">obadeljzzar@gmail.com</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Phone number</span>
+                                        <span class="detail-value">(229) 555-0109</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Date of birth</span>
+                                        <span class="detail-value">12/03/1987</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Home address</span>
+                                        <span class="detail-value">6301 Elgin St. Celina, Delaware, 10299</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Location</span>
+                                        <span class="detail-value">Alexandria, Egypt</span>
+                                    </div>
+                                </div>
+
+                                <div class="detail-group">
+                                    <h3 class="detail-title">
+                                        Tags
+                                        <i class="fas fa-plus"></i>
+                                    </h3>
+                                    <div class="tags-container">
+                                        <span class="tag tag-blue">Backend Developer</span>
+                                        <span class="tag tag-purple">Node.js Expert</span>
+                                    </div>
+                                </div>
+
+                                <div class="detail-group">
+                                    <h3 class="detail-title">
+                                        Social Links
+                                        <i class="fas fa-edit"></i>
+                                    </h3>
+                                    <div class="social-links">
+                                        <a href="https://github.com/obad7" target="_blank" class="social-link">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                        <a href="mailto:obadeljzzar@gmail.com" class="social-link">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="tel:+201091938714" class="social-link">
+                                            <i class="fas fa-phone"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="detail-group">
+                                    <h3 class="detail-title">
+                                        Notes
+                                        <i class="fas fa-plus"></i>
+                                    </h3>
+                                    <p class="notes-text">
+                                        Passionate Node.js backend developer with hands-on experience building scalable APIs,
+                                        real-time systems, and secure authentication workflows. Strong foundation in clean
+                                        architecture and a keen interest in building production-grade applications.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-main">
+                        <div class="section-card">
+                            <div class="section-header">
+                                <h2 class="section-title">Work Experience</h2>
+                            </div>
+                            <div class="experience-cards-grid">
+                                <div class="experience-card-compact">
+                                    <div class="exp-card-header">
+                                        <div class="company-logo">
+                                            <i class="fas fa-building"></i>
+                                        </div>
+                                        <div class="exp-card-info">
+                                            <h3 class="exp-card-title">Full-stack Developer</h3>
+                                            <p class="exp-card-company">Zeem · Full-time</p>
+                                            <p class="exp-card-duration">Dec 2025 - Present · 1 mo</p>
+                                            <p class="exp-card-location">Remote</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="experience-card-compact">
+                                    <div class="exp-card-header">
+                                        <div class="company-logo">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <div class="exp-card-info">
+                                            <h3 class="exp-card-title">Node.js Developer</h3>
+                                            <p class="exp-card-company">Freelance</p>
+                                            <p class="exp-card-duration">Jun 2024 - Present · 1 yr 7 mos</p>
+                                            <div class="exp-card-skills">
+                                                <i class="fas fa-star"></i>
+                                                <span>Express.js, Mongoose ODM and +4 skills</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="experience-card-compact">
+                                    <div class="exp-card-header">
+                                        <div class="company-logo">
+                                            <i class="fas fa-laptop-code"></i>
+                                        </div>
+                                        <div class="exp-card-info">
+                                            <h3 class="exp-card-title">Active34</h3>
+                                            <p class="exp-card-company">Apprenticeship · 2 yrs 8 mos</p>
+                                            <p class="exp-card-location">Remote</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="experience-card-compact">
+                                    <div class="exp-card-header">
+                                        <div class="company-logo">
+                                            <i class="fab fa-laravel"></i>
+                                        </div>
+                                        <div class="exp-card-info">
+                                            <h3 class="exp-card-title">Laravel Developer</h3>
+                                            <p class="exp-card-company">May 2023 - Present · 2 yrs 8 mos</p>
+                                            <p class="exp-card-location">Turkey</p>
+                                            <div class="exp-card-skills">
+                                                <i class="fas fa-star"></i>
+                                                <span>PHP and Laravel framework</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-card">
+                            <div class="section-header">
+                                <h2 class="section-title">Pinned documents & files</h2>
+                            </div>
+                            <div class="documents-grid">
+                                <div class="document-card doc-blue">
+                                    <i class="fas fa-file-alt"></i>
+                                    <h3 class="doc-title">Resume</h3>
+                                    <p class="doc-meta">Updated on 15 Apr, 2025</p>
+                                </div>
+                                <div class="document-card doc-orange">
+                                    <i class="fas fa-file-code"></i>
+                                    <h3 class="doc-title">Portfolio Projects</h3>
+                                    <p class="doc-meta">Updated on 18 Apr, 2025</p>
+                                </div>
+                                <div class="document-card doc-green">
+                                    <i class="fas fa-certificate"></i>
+                                    <h3 class="doc-title">Certifications</h3>
+                                    <p class="doc-meta">Updated on 10 Mar, 2025</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-card">
+                            <div class="section-header">
+                                <h2 class="section-title">Latest activity</h2>
+                                <a href="#" class="section-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p class="activity-text">
+                                            <strong>Abdelrahman</strong> completed new feature <strong>Real-time Chat</strong>
+                                        </p>
+                                        <span class="activity-time">1 day ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p class="activity-text">
+                                            <strong>Database</strong> optimized query performance by 40%
+                                        </p>
+                                        <span class="activity-time">3 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p class="activity-text">
+                                            <strong>Security</strong> implemented RBAC for all endpoints
+                                        </p>
+                                        <span class="activity-time">1 week ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <h1 class="hero-title">Abdelrahman Mahmoud</h1>
-                <p class="hero-subtitle">Node.js Backend Developer</p>
-                <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Alexandria, Egypt</p>
-                <div class="social-links">
-                    <a href="mailto:obadeljzzar@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://github.com/obad7" target="_blank" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="tel:+201091938714" class="social-link" aria-label="Phone">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+            </section>
 
-    <main class="main-content">
-        <section class="section about-section" id="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <p class="about-text">
-                        Passionate Node.js backend developer with hands-on experience building scalable APIs,
-                        real-time systems, and secure authentication workflows. Strong foundation in clean
-                        architecture and a keen interest in building production-grade applications using
-                        modern backend tools and practices. Committed to continuous learning and team collaboration.
-                    </p>
+            <section class="content-section" id="skills">
+                <div class="page-header">
+                    <h1 class="page-title">Technical Skills</h1>
                 </div>
-            </div>
-        </section>
-
-        <section class="section skills-section" id="skills">
-            <div class="container">
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-code"></i> Languages & Frameworks
-                        </h3>
+                <div class="skills-layout">
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="category-title">Languages & Frameworks</h3>
+                        </div>
                         <div class="skill-tags">
                             <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Express</span>
@@ -84,10 +296,13 @@
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-server"></i> APIs & Databases
-                        </h3>
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3 class="category-title">APIs & Databases</h3>
+                        </div>
                         <div class="skill-tags">
                             <span class="skill-tag">REST APIs</span>
                             <span class="skill-tag">GraphQL</span>
@@ -99,60 +314,73 @@
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-shield-alt"></i> Security & Tools
-                        </h3>
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="category-title">Security & Tools</h3>
+                        </div>
                         <div class="skill-tags">
                             <span class="skill-tag">JWT</span>
                             <span class="skill-tag">bcrypt</span>
                             <span class="skill-tag">RBAC</span>
                             <span class="skill-tag">Rate Limiting</span>
                             <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
                             <span class="skill-tag">Cloudinary</span>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">
-                            <i class="fas fa-globe"></i> Languages
-                        </h3>
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="category-title">Languages</h3>
+                        </div>
                         <div class="language-skills">
                             <div class="language-item">
-                                <span class="language-name">Arabic</span>
-                                <div class="language-level">
-                                    <div class="language-bar" style="width: 100%"></div>
+                                <div class="language-info">
+                                    <span class="language-name">Arabic</span>
+                                    <span class="language-level">Native</span>
                                 </div>
-                                <span class="language-text">Native</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
                             </div>
                             <div class="language-item">
-                                <span class="language-name">English</span>
-                                <div class="language-level">
-                                    <div class="language-bar" style="width: 70%"></div>
+                                <div class="language-info">
+                                    <span class="language-name">English</span>
+                                    <span class="language-level">Intermediate</span>
                                 </div>
-                                <span class="language-text">Intermediate</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 70%"></div>
+                                </div>
                             </div>
                             <div class="language-item">
-                                <span class="language-name">Turkish</span>
-                                <div class="language-level">
-                                    <div class="language-bar" style="width: 65%"></div>
+                                <div class="language-info">
+                                    <span class="language-name">Turkish</span>
+                                    <span class="language-level">Intermediate</span>
                                 </div>
-                                <span class="language-text">Intermediate</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section projects-section" id="projects">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Job Search Platform API</h3>
-                            <a href="https://github.com/obad7/Job-Search-App" target="_blank" class="project-link">
+            <section class="content-section" id="projects">
+                <div class="page-header">
+                    <h1 class="page-title">Featured Projects</h1>
+                </div>
+                <div class="projects-layout">
+                    <div class="project-card-detailed">
+                        <div class="project-card-header">
+                            <h3 class="project-card-title">Job Search Platform API</h3>
+                            <a href="https://github.com/obad7/Job-Search-App" target="_blank" class="github-link">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -161,7 +389,7 @@
                             Implemented both RESTful and GraphQL APIs for job listings, applications, and user authentication.
                             Designed and managed Role-Based Access Control (RBAC) and JWT authentication for secure access.
                         </p>
-                        <div class="project-tech">
+                        <div class="tech-stack">
                             <span class="tech-badge">Node.js</span>
                             <span class="tech-badge">Express</span>
                             <span class="tech-badge">GraphQL</span>
@@ -169,12 +397,15 @@
                             <span class="tech-badge">Socket.IO</span>
                             <span class="tech-badge">JWT</span>
                         </div>
+                        <div class="project-footer">
+                            <span class="project-date">Updated 2 weeks ago</span>
+                        </div>
                     </div>
 
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3 class="project-title">Social Media API</h3>
-                            <a href="https://github.com/obad7/Social-App" target="_blank" class="project-link">
+                    <div class="project-card-detailed">
+                        <div class="project-card-header">
+                            <h3 class="project-card-title">Social Media API</h3>
+                            <a href="https://github.com/obad7/Social-App" target="_blank" class="github-link">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -183,106 +414,101 @@
                             Built modular API architecture with route-based admin controls. Secured all endpoints using
                             JWT authentication and password hashing with bcrypt.
                         </p>
-                        <div class="project-tech">
+                        <div class="tech-stack">
                             <span class="tech-badge">Node.js</span>
                             <span class="tech-badge">Express</span>
                             <span class="tech-badge">MongoDB</span>
                             <span class="tech-badge">JWT</span>
                             <span class="tech-badge">Cloudinary</span>
                         </div>
+                        <div class="project-footer">
+                            <span class="project-date">Updated 1 month ago</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section experience-section" id="experience">
-            <div class="container">
-                <h2 class="section-title">Professional Practices</h2>
-                <div class="experience-list">
-                    <div class="experience-card">
-                        <div class="experience-icon">
+            <section class="content-section" id="experience">
+                <div class="page-header">
+                    <h1 class="page-title">Professional Practices</h1>
+                </div>
+                <div class="experience-layout">
+                    <div class="experience-card-detailed">
+                        <div class="experience-badge">
                             <i class="fas fa-laptop-code"></i>
                         </div>
-                        <div class="experience-content">
-                            <h3 class="experience-title">Backend Development</h3>
-                            <ul class="experience-points">
-                                <li>Building scalable RESTful and GraphQL APIs</li>
-                                <li>Implementing real-time features with WebSockets</li>
-                                <li>Database design and optimization</li>
-                            </ul>
-                        </div>
+                        <h3 class="experience-card-title">Backend Development</h3>
+                        <ul class="experience-list">
+                            <li>Building scalable RESTful and GraphQL APIs</li>
+                            <li>Implementing real-time features with WebSockets</li>
+                            <li>Database design and optimization</li>
+                        </ul>
                     </div>
 
-                    <div class="experience-card">
-                        <div class="experience-icon">
+                    <div class="experience-card-detailed">
+                        <div class="experience-badge">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <div class="experience-content">
-                            <h3 class="experience-title">Security & Authentication</h3>
-                            <ul class="experience-points">
-                                <li>JWT-based authentication systems</li>
-                                <li>Role-Based Access Control (RBAC)</li>
-                                <li>Data encryption and secure password handling</li>
-                            </ul>
-                        </div>
+                        <h3 class="experience-card-title">Security & Authentication</h3>
+                        <ul class="experience-list">
+                            <li>JWT-based authentication systems</li>
+                            <li>Role-Based Access Control (RBAC)</li>
+                            <li>Data encryption and secure password handling</li>
+                        </ul>
                     </div>
 
-                    <div class="experience-card">
-                        <div class="experience-icon">
+                    <div class="experience-card-detailed">
+                        <div class="experience-badge">
                             <i class="fas fa-cubes"></i>
                         </div>
-                        <div class="experience-content">
-                            <h3 class="experience-title">Architecture & Design</h3>
-                            <ul class="experience-points">
-                                <li>Clean architecture principles</li>
-                                <li>Microservices architecture patterns</li>
-                                <li>Modular and maintainable code structures</li>
-                            </ul>
-                        </div>
+                        <h3 class="experience-card-title">Architecture & Design</h3>
+                        <ul class="experience-list">
+                            <li>Clean architecture principles</li>
+                            <li>Microservices architecture patterns</li>
+                            <li>Modular and maintainable code structures</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="section contact-section" id="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-grid">
-                    <a href="mailto:obadeljzzar@gmail.com" class="contact-card">
-                        <div class="contact-icon">
+            <section class="content-section" id="contact">
+                <div class="page-header">
+                    <h1 class="page-title">Get In Touch</h1>
+                </div>
+                <div class="contact-layout">
+                    <a href="mailto:obadeljzzar@gmail.com" class="contact-card-detailed">
+                        <div class="contact-icon-wrapper">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <h3 class="contact-title">Email</h3>
-                        <p class="contact-text">obadeljzzar@gmail.com</p>
+                        <div class="contact-info">
+                            <h3 class="contact-label">Email</h3>
+                            <p class="contact-value">obadeljzzar@gmail.com</p>
+                        </div>
                     </a>
 
-                    <a href="tel:+201091938714" class="contact-card">
-                        <div class="contact-icon">
+                    <a href="tel:+201091938714" class="contact-card-detailed">
+                        <div class="contact-icon-wrapper">
                             <i class="fas fa-phone"></i>
                         </div>
-                        <h3 class="contact-title">Phone</h3>
-                        <p class="contact-text">+20 109 193 8714</p>
+                        <div class="contact-info">
+                            <h3 class="contact-label">Phone</h3>
+                            <p class="contact-value">+20 109 193 8714</p>
+                        </div>
                     </a>
 
-                    <a href="https://github.com/obad7" target="_blank" class="contact-card">
-                        <div class="contact-icon">
+                    <a href="https://github.com/obad7" target="_blank" class="contact-card-detailed">
+                        <div class="contact-icon-wrapper">
                             <i class="fab fa-github"></i>
                         </div>
-                        <h3 class="contact-title">GitHub</h3>
-                        <p class="contact-text">github.com/obad7</p>
+                        <div class="contact-info">
+                            <h3 class="contact-label">GitHub</h3>
+                            <p class="contact-value">github.com/obad7</p>
+                        </div>
                     </a>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p class="footer-text">
-                &copy; 2025 Abdelrahman Mahmoud. All rights reserved.
-            </p>
-        </div>
-    </footer>
+            </section>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
