@@ -482,6 +482,32 @@ console.log('Escape: Return to profile');
 console.log('Right-click on social links: Copy to clipboard');
 
 // ===========================
+// LOCAL TIME CLOCK
+// ===========================
+
+function updateLocalTime() {
+    const timeElement = document.getElementById('local-time');
+    if (timeElement) {
+        const now = new Date();
+
+        // Convert to Egypt timezone (UTC+2)
+        const egyptTime = new Date(now.toLocaleString('en-US', {
+            timeZone: 'Africa/Cairo'
+        }));
+
+        const hours = String(egyptTime.getHours()).padStart(2, '0');
+        const minutes = String(egyptTime.getMinutes()).padStart(2, '0');
+        const seconds = String(egyptTime.getSeconds()).padStart(2, '0');
+
+        timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+}
+
+// Update time every second
+setInterval(updateLocalTime, 1000);
+updateLocalTime(); // Initial call
+
+// ===========================
 // INITIALIZATION
 // ===========================
 
@@ -490,6 +516,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set initial section based on hash or default to profile
     handleHashNavigation();
+
+    // Start local time clock
+    updateLocalTime();
 
     // Trigger any initial animations
     setTimeout(() => {
