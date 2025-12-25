@@ -508,6 +508,174 @@ setInterval(updateLocalTime, 1000);
 updateLocalTime(); // Initial call
 
 // ===========================
+// PROJECT MODAL FUNCTIONALITY
+// ===========================
+
+const projectData = {
+    'job-search': {
+        title: 'Job Search App',
+        icon: 'fa-briefcase',
+        description: 'A comprehensive job search platform built with Node.js and Express, featuring advanced filtering capabilities, user authentication, and role-based access control for job seekers and employers.',
+        features: [
+            'User authentication with JWT token-based security',
+            'Advanced job search and filtering system',
+            'Company and job posting management',
+            'Application tracking system',
+            'File upload support for resumes and documents',
+            'RESTful API architecture'
+        ],
+        technologies: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'JWT', 'bcrypt', 'Cloudinary'],
+        githubUrl: 'https://github.com/obad7/Job-Search-App'
+    },
+    'social-app': {
+        title: 'Social App',
+        icon: 'fa-users',
+        description: 'A full-featured social media platform enabling users to create, manage, and interact with posts and comments. Features user authentication, profile management, and administrative controls.',
+        features: [
+            'Email/password and Gmail login authentication',
+            'User profile management with updates',
+            'Post creation, updating, soft deletion, and restoration',
+            'Comment system with nested replies',
+            'Like/unlike functionality',
+            'File upload (local storage and Cloudinary)',
+            'Role-based access control with admin functionality',
+            'Input validation using Joi schema'
+        ],
+        technologies: ['Express.js', 'MongoDB', 'Mongoose', 'JWT', 'Joi', 'Cloudinary', 'OAuth'],
+        githubUrl: 'https://github.com/obad7/Social-App'
+    },
+    'flower-store': {
+        title: 'Flower Store',
+        icon: 'fa-shopping-cart',
+        description: 'A production-ready e-commerce platform for online flower and gift stores, featuring comprehensive product management, shopping cart, checkout system, and Stripe payment integration with caching and monitoring.',
+        features: [
+            'NestJS 10 with modular architecture',
+            'Redis integration for caching and rate limiting',
+            'Swagger API documentation at /api-docs',
+            'Winston logging with daily rotation',
+            'Docker support for dev and production',
+            'Prometheus and Grafana for observability',
+            'Stripe payment integration',
+            'Health checks and structured error handling'
+        ],
+        technologies: ['NestJS', 'TypeScript', 'MongoDB', 'Redis', 'Swagger', 'Docker', 'Stripe', 'Prometheus'],
+        githubUrl: 'https://github.com/ZiadmMohamed/Flower-Store'
+    }
+};
+
+// Initialize project modal functionality
+function initializeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    const modalClose = document.querySelector('.project-modal-close');
+    const projectCards = document.querySelectorAll('.project-compact-card');
+
+    if (!modal || !modalClose) {
+        console.error('Project modal elements not found');
+        return;
+    }
+
+    // Open modal function
+    function openProjectModal(projectId) {
+        const project = projectData[projectId];
+        if (!project) return;
+
+        // Update modal content
+        const modalIcon = document.querySelector('.project-modal-icon i');
+        const modalTitle = document.querySelector('.project-modal-title');
+        const modalDescription = document.querySelector('.project-modal-description');
+        const featuresList = document.querySelector('.project-modal-features');
+        const techContainer = document.querySelector('.project-modal-tech');
+        const githubLink = document.querySelector('.project-modal-link');
+
+        if (modalIcon) modalIcon.className = `fas ${project.icon}`;
+        if (modalTitle) modalTitle.textContent = project.title;
+        if (modalDescription) modalDescription.textContent = project.description;
+
+        // Update features list
+        if (featuresList) {
+            featuresList.innerHTML = '';
+            project.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+        }
+
+        // Update technologies
+        if (techContainer) {
+            techContainer.innerHTML = '';
+            project.technologies.forEach(tech => {
+                const span = document.createElement('span');
+                span.className = 'project-modal-tech-tag';
+                span.textContent = tech;
+                techContainer.appendChild(span);
+            });
+        }
+
+        // Update GitHub link
+        if (githubLink) {
+            githubLink.href = project.githubUrl;
+            githubLink.setAttribute('target', '_blank');
+            githubLink.setAttribute('rel', 'noopener noreferrer');
+
+            // Remove old click listeners and add new one
+            const newGithubLink = githubLink.cloneNode(true);
+            githubLink.parentNode.replaceChild(newGithubLink, githubLink);
+
+            newGithubLink.addEventListener('click', (e) => {
+                e.stopPropagation();
+                console.log('Opening GitHub link:', project.githubUrl);
+                window.open(project.githubUrl, '_blank', 'noopener,noreferrer');
+            });
+        }
+
+        // Show modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close modal function
+    function closeProjectModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Add click events to project cards
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const projectId = card.getAttribute('data-project');
+            openProjectModal(projectId);
+        });
+    });
+
+    // Close modal on close button click
+    modalClose.addEventListener('click', closeProjectModal);
+
+    // Prevent modal content clicks from closing modal
+    const modalContent = document.querySelector('.project-modal-content');
+    if (modalContent) {
+        modalContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // Close modal on outside click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeProjectModal();
+        }
+    });
+
+    // Close modal on Escape key (non-conflicting with existing Escape handler)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            e.stopPropagation();
+            closeProjectModal();
+        }
+    });
+}
+
+// ===========================
 // INITIALIZATION
 // ===========================
 
@@ -519,6 +687,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start local time clock
     updateLocalTime();
+
+    // Initialize project modal
+    initializeProjectModal();
 
     // Trigger any initial animations
     setTimeout(() => {

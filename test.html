@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Test</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div style="padding: 2rem;">
+        <h1 style="color: white; margin-bottom: 2rem;">Click on a project card:</h1>
+
+        <div class="projects-compact-grid" style="max-width: 800px;">
+            <div class="project-compact-card" data-project="job-search">
+                <div class="project-compact-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3 class="project-compact-title">Job Search App</h3>
+                <p class="project-compact-desc">Job search platform with advanced filtering</p>
+                <div class="project-compact-tags">
+                    <span class="project-tag">Node.js</span>
+                    <span class="project-tag">Express</span>
+                </div>
+            </div>
+
+            <div class="project-compact-card" data-project="social-app">
+                <div class="project-compact-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="project-compact-title">Social App</h3>
+                <p class="project-compact-desc">Full-featured social media platform</p>
+                <div class="project-compact-tags">
+                    <span class="project-tag">Express.js</span>
+                    <span class="project-tag">MongoDB</span>
+                </div>
+            </div>
+
+            <div class="project-compact-card" data-project="flower-store">
+                <div class="project-compact-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3 class="project-compact-title">Flower Store</h3>
+                <p class="project-compact-desc">E-commerce platform with Stripe integration</p>
+                <div class="project-compact-tags">
+                    <span class="project-tag">NestJS</span>
+                    <span class="project-tag">TypeScript</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close">&times;</span>
+            <div class="project-modal-header">
+                <div class="project-modal-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2 class="project-modal-title"></h2>
+            </div>
+            <div class="project-modal-body">
+                <p class="project-modal-description"></p>
+
+                <div class="project-modal-section">
+                    <h3>Key Features</h3>
+                    <ul class="project-modal-features"></ul>
+                </div>
+
+                <div class="project-modal-section">
+                    <h3>Technologies Used</h3>
+                    <div class="project-modal-tech"></div>
+                </div>
+
+                <div class="project-modal-footer">
+                    <a href="#" target="_blank" class="project-modal-link">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const projectData = {
+            'job-search': {
+                title: 'Job Search App',
+                icon: 'fa-briefcase',
+                description: 'A comprehensive job search platform built with Node.js and Express, featuring advanced filtering capabilities, user authentication, and role-based access control for job seekers and employers.',
+                features: [
+                    'User authentication with JWT token-based security',
+                    'Advanced job search and filtering system',
+                    'Company and job posting management',
+                    'Application tracking system',
+                    'File upload support for resumes and documents',
+                    'RESTful API architecture'
+                ],
+                technologies: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'JWT', 'bcrypt', 'Cloudinary'],
+                githubUrl: 'https://github.com/obad7/Job-Search-App'
+            },
+            'social-app': {
+                title: 'Social App',
+                icon: 'fa-users',
+                description: 'A full-featured social media platform enabling users to create, manage, and interact with posts and comments. Features user authentication, profile management, and administrative controls.',
+                features: [
+                    'Email/password and Gmail login authentication',
+                    'User profile management with updates',
+                    'Post creation, updating, soft deletion, and restoration',
+                    'Comment system with nested replies',
+                    'Like/unlike functionality',
+                    'File upload (local storage and Cloudinary)',
+                    'Role-based access control with admin functionality',
+                    'Input validation using Joi schema'
+                ],
+                technologies: ['Express.js', 'MongoDB', 'Mongoose', 'JWT', 'Joi', 'Cloudinary', 'OAuth'],
+                githubUrl: 'https://github.com/obad7/Social-App'
+            },
+            'flower-store': {
+                title: 'Flower Store',
+                icon: 'fa-shopping-cart',
+                description: 'A production-ready e-commerce platform for online flower and gift stores, featuring comprehensive product management, shopping cart, checkout system, and Stripe payment integration with caching and monitoring.',
+                features: [
+                    'NestJS 10 with modular architecture',
+                    'Redis integration for caching and rate limiting',
+                    'Swagger API documentation at /api-docs',
+                    'Winston logging with daily rotation',
+                    'Docker support for dev and production',
+                    'Prometheus and Grafana for observability',
+                    'Stripe payment integration',
+                    'Health checks and structured error handling'
+                ],
+                technologies: ['NestJS', 'TypeScript', 'MongoDB', 'Redis', 'Swagger', 'Docker', 'Stripe', 'Prometheus'],
+                githubUrl: 'https://github.com/ZiadmMohamed/Flower-Store'
+            }
+        };
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Test page loaded');
+
+            const modal = document.getElementById('projectModal');
+            const modalClose = document.querySelector('.project-modal-close');
+            const projectCards = document.querySelectorAll('.project-compact-card');
+
+            console.log('Modal:', modal);
+            console.log('Modal close:', modalClose);
+            console.log('Project cards:', projectCards);
+
+            // Open modal function
+            function openProjectModal(projectId) {
+                console.log('Opening modal for:', projectId);
+                const project = projectData[projectId];
+                if (!project) {
+                    console.error('Project not found:', projectId);
+                    return;
+                }
+
+                // Update modal content
+                const modalIcon = document.querySelector('.project-modal-icon i');
+                const modalTitle = document.querySelector('.project-modal-title');
+                const modalDescription = document.querySelector('.project-modal-description');
+                const featuresList = document.querySelector('.project-modal-features');
+                const techContainer = document.querySelector('.project-modal-tech');
+                const githubLink = document.querySelector('.project-modal-link');
+
+                if (modalIcon) modalIcon.className = `fas ${project.icon}`;
+                if (modalTitle) modalTitle.textContent = project.title;
+                if (modalDescription) modalDescription.textContent = project.description;
+
+                // Update features list
+                if (featuresList) {
+                    featuresList.innerHTML = '';
+                    project.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        featuresList.appendChild(li);
+                    });
+                }
+
+                // Update technologies
+                if (techContainer) {
+                    techContainer.innerHTML = '';
+                    project.technologies.forEach(tech => {
+                        const span = document.createElement('span');
+                        span.className = 'project-modal-tech-tag';
+                        span.textContent = tech;
+                        techContainer.appendChild(span);
+                    });
+                }
+
+                // Update GitHub link
+                if (githubLink) {
+                    githubLink.href = project.githubUrl;
+                    console.log('GitHub link set to:', project.githubUrl);
+                }
+
+                // Show modal
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Modal opened');
+            }
+
+            // Close modal function
+            function closeProjectModal() {
+                console.log('Closing modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Add click events to project cards
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectId = card.getAttribute('data-project');
+                    console.log('Card clicked:', projectId);
+                    openProjectModal(projectId);
+                });
+            });
+
+            // Close modal on close button click
+            if (modalClose) {
+                modalClose.addEventListener('click', closeProjectModal);
+            }
+
+            // Close modal on outside click
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeProjectModal();
+                    }
+                });
+            }
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeProjectModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

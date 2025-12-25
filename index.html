@@ -66,7 +66,7 @@
                                         <i class="fas fa-paperclip"></i>
                                     </h3>
                                     <div class="pinned-docs-sidebar">
-                                        <a href="#" class="pinned-doc-item doc-blue">
+                                        <a href="https://drive.google.com/drive/folders/1o_6HHPtGTH9E-m2GBVf5gzLg91mQAsxU?usp=drive_link" target="_blank" rel="noopener noreferrer" class="pinned-doc-item doc-blue">
                                             <i class="fas fa-file-alt"></i>
                                             <div class="pinned-doc-info">
                                                 <h4 class="pinned-doc-title">Resume</h4>
@@ -293,6 +293,55 @@
 
                         <div class="section-card">
                             <div class="section-header">
+                                <h2 class="section-title">Featured Projects</h2>
+                            </div>
+                            <div class="projects-compact-grid">
+                                <div class="project-compact-card" data-project="job-search">
+                                    <div class="project-header">
+                                        <div class="project-compact-icon">
+                                            <i class="fas fa-briefcase"></i>
+                                        </div>
+                                        <h3 class="project-compact-title">Job Search App</h3>
+                                    </div>
+                                    <p class="project-compact-desc">Job search platform with advanced filtering</p>
+                                    <div class="project-compact-tags">
+                                        <span class="project-tag">Node.js</span>
+                                        <span class="project-tag">Express</span>
+                                    </div>
+                                </div>
+
+                                <div class="project-compact-card" data-project="social-app">
+                                    <div class="project-header">
+                                        <div class="project-compact-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <h3 class="project-compact-title">Social App</h3>
+                                    </div>
+                                    <p class="project-compact-desc">Full-featured social media platform</p>
+                                    <div class="project-compact-tags">
+                                        <span class="project-tag">Express.js</span>
+                                        <span class="project-tag">MongoDB</span>
+                                    </div>
+                                </div>
+
+                                <div class="project-compact-card" data-project="flower-store">
+                                    <div class="project-header">
+                                        <div class="project-compact-icon">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                        <h3 class="project-compact-title">Flower Store</h3>
+                                    </div>
+                                    <p class="project-compact-desc">E-commerce platform with Stripe integration</p>
+                                    <div class="project-compact-tags">
+                                        <span class="project-tag">NestJS</span>
+                                        <span class="project-tag">TypeScript</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-card">
+                            <div class="section-header">
                                 <h2 class="section-title">Languages</h2>
                             </div>
                             <div class="skills-compact-grid">
@@ -337,6 +386,39 @@
                 </div>
             </section>
         </main>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="project-modal">
+        <div class="project-modal-content">
+            <span class="project-modal-close">&times;</span>
+            <div class="project-modal-header">
+                <div class="project-modal-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2 class="project-modal-title"></h2>
+            </div>
+            <div class="project-modal-body">
+                <p class="project-modal-description"></p>
+
+                <div class="project-modal-section">
+                    <h3>Key Features</h3>
+                    <ul class="project-modal-features"></ul>
+                </div>
+
+                <div class="project-modal-section">
+                    <h3>Technologies Used</h3>
+                    <div class="project-modal-tech"></div>
+                </div>
+
+                <div class="project-modal-footer">
+                    <a href="#" target="_blank" class="project-modal-link">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
