@@ -1599,3 +1599,317 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--text-secondary);
 }
+
+/* ============================================================
+   ENHANCED UI — VISUAL IMPROVEMENTS
+   ============================================================ */
+
+/* — Profile Card: Reset & Hero Layout — */
+.profile-card {
+    padding: 0;
+    overflow: hidden;
+}
+
+.profile-hero {
+    height: 95px;
+    background: linear-gradient(135deg, #3730a3 0%, #5b21b6 40%, #7c3aed 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+}
+
+.hero-circle-1 {
+    width: 180px;
+    height: 180px;
+    top: -100px;
+    right: -40px;
+}
+
+.hero-circle-2 {
+    width: 110px;
+    height: 110px;
+    bottom: -55px;
+    left: 10px;
+}
+
+.profile-content {
+    padding: 0 1.75rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-content .profile-details {
+    width: 100%;
+}
+
+/* — Avatar: Overlap Hero + Pulsing Glow — */
+.profile-card .profile-avatar {
+    margin-top: -52px;
+    margin-bottom: 0.875rem;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-card .avatar-image {
+    border: 3px solid #ffffff;
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.45),
+        0 8px 32px rgba(0, 0, 0, 0.5);
+    animation: avatarGlowPulse 3.5s ease-in-out infinite;
+}
+
+.profile-card .avatar-placeholder {
+    border: 3px solid #ffffff;
+    box-shadow:
+        0 0 0 4px rgba(99, 102, 241, 0.45),
+        0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes avatarGlowPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 0 4px rgba(99, 102, 241, 0.45),
+            0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow:
+            0 0 0 8px rgba(99, 102, 241, 0.2),
+            0 8px 32px rgba(0, 0, 0, 0.5),
+            0 0 48px rgba(99, 102, 241, 0.12);
+    }
+}
+
+/* — Availability Badge — */
+.availability-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.875rem;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 99px;
+    color: #34d399;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.625rem;
+}
+
+.availability-dot {
+    width: 7px;
+    height: 7px;
+    background: #10b981;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: availDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes availDotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.7); }
+}
+
+/* — Profile Name: Gradient Text — */
+.profile-content .profile-name {
+    font-size: 1.375rem;
+    background: linear-gradient(135deg, #e2e8f0 20%, #c7d2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.375rem;
+}
+
+/* — Profile Role: Pill Badge — */
+.profile-content .profile-role {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.12));
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    border-radius: 99px;
+    color: #a5b4fc;
+    font-weight: 500;
+    font-size: 0.8125rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.25px;
+}
+
+/* — Section Titles: Left Accent Bar — */
+.section-title {
+    position: relative;
+    padding-left: 0.875rem;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 1.1em;
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+}
+
+/* — Experience Cards: Colored Left Borders — */
+.experience-cards-grid .experience-card-compact:nth-child(1) { border-left: 3px solid #6366f1; }
+.experience-cards-grid .experience-card-compact:nth-child(2) { border-left: 3px solid #10b981; }
+.experience-cards-grid .experience-card-compact:nth-child(3) { border-left: 3px solid #f59e0b; }
+.experience-cards-grid .experience-card-compact:nth-child(4) { border-left: 3px solid #ef4444; }
+
+.experience-cards-grid .experience-card-compact:nth-child(1):hover { border-color: #6366f1; box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2); }
+.experience-cards-grid .experience-card-compact:nth-child(2):hover { border-color: #10b981; box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2); }
+.experience-cards-grid .experience-card-compact:nth-child(3):hover { border-color: #f59e0b; box-shadow: 0 4px 20px rgba(245, 158, 11, 0.2); }
+.experience-cards-grid .experience-card-compact:nth-child(4):hover { border-color: #ef4444; box-shadow: 0 4px 20px rgba(239, 68, 68, 0.2); }
+
+/* — Project Cards: Colored Top Borders & Icon Tints — */
+.project-compact-card[data-project="job-search"]    { border-top: 3px solid #3b82f6; }
+.project-compact-card[data-project="social-app"]    { border-top: 3px solid #10b981; }
+.project-compact-card[data-project="flower-store"]  { border-top: 3px solid #f59e0b; }
+
+.project-compact-card[data-project="job-search"] .project-compact-icon {
+    color: #60a5fa;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.1));
+    border-color: rgba(59, 130, 246, 0.35);
+}
+.project-compact-card[data-project="social-app"] .project-compact-icon {
+    color: #34d399;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.1));
+    border-color: rgba(16, 185, 129, 0.35);
+}
+.project-compact-card[data-project="flower-store"] .project-compact-icon {
+    color: #fcd34d;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(249, 115, 22, 0.1));
+    border-color: rgba(245, 158, 11, 0.35);
+}
+
+.project-compact-card[data-project="job-search"]:hover   { border-color: #3b82f6; box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2); }
+.project-compact-card[data-project="social-app"]:hover   { border-color: #10b981; box-shadow: 0 8px 30px rgba(16, 185, 129, 0.2); }
+.project-compact-card[data-project="flower-store"]:hover { border-color: #f59e0b; box-shadow: 0 8px 30px rgba(245, 158, 11, 0.2); }
+
+/* — Languages: Progress Bar Cards — */
+.languages-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+}
+
+.language-progress-card {
+    background: rgba(99, 102, 241, 0.04);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    transition: var(--transition);
+}
+
+.language-progress-card:hover {
+    border-color: rgba(99, 102, 241, 0.4);
+    background: rgba(99, 102, 241, 0.08);
+    transform: translateX(4px);
+}
+
+.lang-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.75rem;
+}
+
+.lang-flag {
+    font-size: 1.375rem;
+    line-height: 1;
+}
+
+.lang-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.lang-level-badge {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    padding: 0.2rem 0.625rem;
+    border-radius: 99px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(139, 92, 246, 0.1));
+    color: var(--primary-light);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.lang-level-badge.level-native {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(6, 182, 212, 0.08));
+    color: #34d399;
+    border-color: rgba(16, 185, 129, 0.35);
+}
+
+.lang-level-badge.level-intermediate {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(249, 115, 22, 0.08));
+    color: #fcd34d;
+    border-color: rgba(245, 158, 11, 0.35);
+}
+
+.lang-progress-bar {
+    width: 100%;
+    height: 5px;
+    background: var(--bg-tertiary);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.lang-progress-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform-origin: left;
+    animation: langBarGrow 1s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+.languages-grid .language-progress-card:nth-child(1) .lang-progress-fill { animation-delay: 0.3s; }
+.languages-grid .language-progress-card:nth-child(2) .lang-progress-fill { animation-delay: 0.5s; }
+.languages-grid .language-progress-card:nth-child(3) .lang-progress-fill { animation-delay: 0.7s; }
+
+@keyframes langBarGrow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+/* — Section Cards: Subtle Hover — */
+.section-card {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-card:hover {
+    border-color: rgba(99, 102, 241, 0.25);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* — Skill Compact Cards: Hover Glow — */
+.skill-compact-card:hover {
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.12);
+}
+
+/* — Scrollbar: Gradient Style — */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+/* — Background: Subtle Dot Pattern — */
+body {
+    background-image: radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.04) 1px, transparent 0);
+    background-size: 32px 32px;
+}
